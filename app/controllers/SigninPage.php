@@ -114,7 +114,9 @@ class SigninPage extends Controller
         if (env('APP_ENV') == 'prod') {
             $view = $this->getView('signup-verification-mail-template');
             $view->assign('code', $this->newVerification());
-            mail($to, 'Your verification code', $view->fetch());
+            mail($to, 'Your verification code', $view->fetch(), [
+                'Content-Type' => 'text/html; charset=utf-8'
+            ]);
         } else {
             error_log($this->newVerification());
         }
