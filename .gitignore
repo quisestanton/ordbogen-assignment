@@ -1,5 +1,6 @@
 /.*
 !/.gitignore
+!/.env.example
 /vendor/
 /composer.*
 /templates_c/
